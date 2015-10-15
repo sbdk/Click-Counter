@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         self.label = label
         
         
-        // add Button
+        // add increment Button
         var button = UIButton()
         button.frame = CGRectMake(150, 250, 60, 60)
         button.setTitle("Click", forState: .Normal)
@@ -32,6 +32,15 @@ class ViewController: UIViewController {
         self.view.addSubview(button)
         
         button.addTarget(self, action: "incrementCount", forControlEvents: UIControlEvents.TouchUpInside)
+    
+        //add decrement button
+        var button2 = UIButton()
+        button2.frame = CGRectMake(150, 350, 150, 60)
+        button2.setTitle("Click to reduce", forState: .Normal)
+        button2.setTitleColor(UIColor.redColor(), forState: .Normal)
+        self.view.addSubview(button2)
+        
+        button2.addTarget(self, action: "decrementCount", forControlEvents: UIControlEvents.TouchUpInside)
     
     }
     
@@ -41,6 +50,10 @@ class ViewController: UIViewController {
         self.label.text = "\(self.count)"
     }
     
+    func decrementCount(){
+        self.count--
+        self.label.text = "\(self.count)"
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
